@@ -25,4 +25,5 @@ You will need to write an apk that could do automatically update with following 
 </ol>
 
 <img src="pictures/Slide1.jpg">
+<img src="pictures/Slide3.jpg">
 <img src="pictures/Slide2.jpg">
