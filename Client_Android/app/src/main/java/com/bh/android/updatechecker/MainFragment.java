@@ -2,6 +2,7 @@ package com.bh.android.updatechecker;
 
 import android.app.AlertDialog;
 import android.app.DownloadManager;
+import android.app.ProgressDialog;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -41,6 +42,27 @@ public class MainFragment extends Fragment {
     public MainFragment() {
     }
 
+
+    private ProgressDialog mProgressDialog = null;
+    private void showProgressDialog(boolean isEnabled) {
+
+        if(isEnabled == true) {
+
+            if(mProgressDialog == null) {
+                mProgressDialog = new ProgressDialog(mContext);
+            }
+
+            mProgressDialog.setIcon(android.R.drawable.ic_dialog_info);
+            mProgressDialog.setMessage("Checking ...");
+            mProgressDialog.setIndeterminate(true);
+            mProgressDialog.show();
+
+        } else {
+            if(mProgressDialog != null) {
+                mProgressDialog.dismiss();
+            }
+        }
+    }
 
     // @BH_Lin 20150323
     // retrun -1 = target version is less than current
@@ -114,14 +136,17 @@ public class MainFragment extends Fragment {
     private void checkAvailableUpdate(String url) {
 
         DataRequester dataRequester = new DataRequester(mContext);
-
-
         if(DBG)Log.d(TAG, "@Server<<CheckLatestVersion");
+
+        //showProgressDialog(true);
+
         dataRequester.httpGet(url, null, new DataRequester.CallBack() {
             @Override
             public void onCallback(String result) {
 
                 if(DBG)Log.d(TAG, "@Server>>CheckLatestVersion:" + result);
+
+                //showProgressDialog(false);
 
                 if(ErrorHandle.mappingErrorCode(result) == ErrorHandle.ERR_SUCCESS) {
 

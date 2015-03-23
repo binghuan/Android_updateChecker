@@ -47,7 +47,7 @@ import java.util.Random;
  */
 public class MyUtils {
 
-    public final static String TAG = "BH_SR_MyUtils";
+    public final static String TAG = "BH_MyUtils";
     public static final boolean DBG = Config.DBG;
 
     public static boolean isNetworkAvailable(Context context) {
