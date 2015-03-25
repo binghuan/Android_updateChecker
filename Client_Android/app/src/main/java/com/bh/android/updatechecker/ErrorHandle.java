@@ -14,7 +14,9 @@ public class ErrorHandle {
 
 
     public static final int ERR_SUCCESS = 0;
-    public static final int ERR_INCORRECT_FORMAT = -1;
+    public static final int ERR_INCORRECT_FORMAT = 911001;
+    public static final int ERR_NETWORK_NOT_AVAILABLE = 911002;
+    public static final int ERR_SERVICE_NOT_AVAILABLE = 911003;
 
 
     // BH_Lin@20150120  --------------------------------------------------------------------------->
@@ -25,7 +27,7 @@ public class ErrorHandle {
         String mappingString = "";
 
 
-        int errorCode = -1;
+        int errorCode = ERR_INCORRECT_FORMAT;
 
         try {
             jsonObject = new JSONObject(result);
@@ -45,7 +47,6 @@ public class ErrorHandle {
         } catch (JSONException e) {
             e.printStackTrace();
             Log.v(TAG, "JSON.parse --> FAIL");
-            return ERR_INCORRECT_FORMAT;
         }
 
         return errorCode;

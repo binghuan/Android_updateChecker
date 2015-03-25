@@ -197,6 +197,7 @@ public class MainFragment extends Fragment {
                     } catch (JSONException e) {
                         e.printStackTrace();
                         new AlertDialog.Builder(mContext)
+                                .setTitle("Error Code:" + ErrorHandle.ERR_INCORRECT_FORMAT)
                                 .setMessage("parse object error in Server Responding data - check lastest" +
                                         " version")
                                 .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
@@ -209,6 +210,7 @@ public class MainFragment extends Fragment {
                     }
                 } else {
                     new AlertDialog.Builder(mContext)
+                            .setTitle("Error Code:" + ErrorHandle.ERR_SERVICE_NOT_AVAILABLE)
                             .setMessage("There is an error occurred, please try again later or " +
                                     "contact the serice provider.")
                             .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
@@ -267,6 +269,12 @@ public class MainFragment extends Fragment {
 
                 new AlertDialog.Builder(mContext)
                         .setMessage("Saved new URL:\n" + newUrl)
+                        .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+
+                            }
+                        })
                         .show();
 
             }
@@ -284,6 +292,7 @@ public class MainFragment extends Fragment {
                         myHandler.sendEmptyMessage(WM_CHECK_UPDATE);
                     } else {
                         new AlertDialog.Builder(mContext)
+                                .setTitle("Error Code:" + ErrorHandle.ERR_NETWORK_NOT_AVAILABLE)
                                 .setMessage("Network is not available, please check it and try " +
                                         "again later.")
                                 .show();
