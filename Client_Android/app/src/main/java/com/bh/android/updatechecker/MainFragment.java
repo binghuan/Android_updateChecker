@@ -197,16 +197,27 @@ public class MainFragment extends Fragment {
                     } catch (JSONException e) {
                         e.printStackTrace();
                         new AlertDialog.Builder(mContext)
-                                .setMessage("parse object error in Server Responsding data - check lastest" +
+                                .setMessage("parse object error in Server Responding data - check lastest" +
                                         " version")
                                 .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                                     @Override
                                     public void onClick(DialogInterface dialog, int which) {
-                                        
+
                                     }
                                 })
                                 .show();
                     }
+                } else {
+                    new AlertDialog.Builder(mContext)
+                            .setMessage("There is an error occurred, please try again later or " +
+                                    "contact the serice provider.")
+                            .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+
+                                }
+                            })
+                            .show();
                 }
 
             }

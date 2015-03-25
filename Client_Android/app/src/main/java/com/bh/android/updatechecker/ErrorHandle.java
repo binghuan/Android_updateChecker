@@ -14,6 +14,7 @@ public class ErrorHandle {
 
 
     public static final int ERR_SUCCESS = 0;
+    public static final int ERR_INCORRECT_FORMAT = -1;
 
 
     // BH_Lin@20150120  --------------------------------------------------------------------------->
@@ -44,7 +45,7 @@ public class ErrorHandle {
         } catch (JSONException e) {
             e.printStackTrace();
             Log.v(TAG, "JSON.parse --> FAIL");
-            return 0;
+            return ERR_INCORRECT_FORMAT;
         }
 
         return errorCode;
