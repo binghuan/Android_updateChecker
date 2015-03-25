@@ -196,9 +196,16 @@ public class MainFragment extends Fragment {
 
                     } catch (JSONException e) {
                         e.printStackTrace();
-
-                        Log.e(TAG, "parse object error in Server Responsding data - check lastest" +
-                                " version");
+                        new AlertDialog.Builder(mContext)
+                                .setMessage("parse object error in Server Responsding data - check lastest" +
+                                        " version")
+                                .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        
+                                    }
+                                })
+                                .show();
                     }
                 }
 
