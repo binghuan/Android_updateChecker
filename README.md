@@ -1,10 +1,7 @@
+#		Sample to check update for Android
+## 	[Program] An automatically software update service on Android platform.
 
-<h1>Sample to check update for Android</h1>
-<h2>[Program] An automatically software update service on Android platform.</h2>
-
-<h3>
-You will need to write an apk that could do automatically update with following requirement.
-</h3>
+### You will need to write an apk that could do automatically update with following requirement.
 
 <ol>
     <li>
